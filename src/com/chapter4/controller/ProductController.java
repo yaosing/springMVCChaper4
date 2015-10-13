@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.chapter4.model.Product;
-import com.chapter4.model.ProductForm;
 import com.chapter4.service.ProductService;
 
 @Controller
@@ -49,17 +48,17 @@ public class ProductController {
 	private ProductService productService;
 
 	@RequestMapping(value = "product_save", method = RequestMethod.POST)
-	public String saveProductNew(ProductForm productForm,
+	public String saveProductNew(Product product,
 			RedirectAttributes redirectAttributes) {
 		logger.info("new saveProduct called");
-		
-		Product product = new Product();
-		product.setName(productForm.getName());
-		product.setDescription(productForm.getDescription());
-		product.setPrice(Float.parseFloat(productForm.getPrice()));
+		logger.info(product.toString());
+//		Product product = new Product();
+//		product.setName(productForm.getName());
+//		product.setDescription(productForm.getDescription());
+//		product.setPrice(Float.parseFloat(productForm.getPrice()));
 		
 		Product savedProduct = productService.add(product);
-		
+			
 		redirectAttributes.addFlashAttribute("message", "add success");
 		return "redirect:/product_view/" + savedProduct.getId();
 	}
