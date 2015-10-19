@@ -38,8 +38,40 @@
 			<input type="submit" id="submit" tabindex="6" value="addProduct">
 		</p>
 	</form>
+<!-- 	<hr> -->
+<%-- 		<form:form  commandName="employee" action="employee_save" method="post"> --%>
+<%-- 		<form:errors path="date"/> --%>
+<!-- 		<p> -->
+<!-- 			<label for="date">Date:</label> -->
+<%-- 			<form:input path="date"/> --%>
+<!-- 		</p> -->
+		
+<!-- 		<p> -->
+<!-- 			<input type="reset" id="reset" > -->
+<!-- 			<input type="submit" id="submit"  value="addEmployee"> -->
+<!-- 		</p> -->
+<%-- 	</form:form> --%>
 	<hr>
-		<form:form  commandName="employee" action="employee_save" method="post">
+	<h5>product validator</h5>
+		<form:form  commandName="product" action="product_save_validator" method="post">
+		<form:errors path="name"/>
+		<p>
+			<label for="name">Name:</label>
+			<form:input path="name"/>
+		</p>
+		
+		<form:errors path="description"/>
+		<p>
+			<label for="description">description:</label>
+			<form:input path="description"/>
+		</p>
+		
+		<form:errors path="price"/>
+		<p>
+			<label for="price">Price:</label>
+			<form:input path="price"/>
+		</p>
+		
 		<form:errors path="date"/>
 		<p>
 			<label for="date">Date:</label>
@@ -50,6 +82,6 @@
 			<input type="reset" id="reset" >
 			<input type="submit" id="submit"  value="addEmployee">
 		</p>
-	</form:form>
+		</form:form>
 </body>
 </html>

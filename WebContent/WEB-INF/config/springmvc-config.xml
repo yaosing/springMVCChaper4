@@ -67,7 +67,9 @@
 	</property>
 </bean>
 
-
+<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	<property name="basename" value="/WEB-INF/resource/messages"/>
+</bean>
 
 <bean id="viewResolver" 
 	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
