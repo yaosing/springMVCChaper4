@@ -19,16 +19,6 @@
 <mvc:resources location="/css/" mapping="/css/*"/>
 <mvc:resources location="/" mapping="/*.html"/>
 
-<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-	<property name="dataSource" ref="jndiDataSource"/>
-</bean>
-
-<bean id="jndiDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-	<property name="jndiName">
-		<value>java:comp/env/jdbc/book</value>
-	</property>
-</bean>
-
 <bean id="conversionService" 
 	class="org.springframework.context.support.ConversionServiceFactoryBean">
 	<property name="converters">
@@ -93,14 +83,13 @@
 	</property>
 </bean>
 
-<bean id="jdbcTemplateTest" class="org.springframework.jdbc.core.JdbcTemplate">
-	<property name="dataSource" ref="testDataSource"/>
-</bean>
-
 <bean id="testDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-	   	     destroy-method="close"
 	   	     p:driverClassName="com.mysql.jdbc.Driver"
 	   	     p:url="jdbc:mysql://localhost:3306/book"
 	   	     p:username="opentaps"
 	   	     p:password="opentaps"/>
+	   	     
+ <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	<property name="dataSource" ref="testDataSource"/>
+</bean>
 </beans>
