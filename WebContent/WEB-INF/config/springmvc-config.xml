@@ -23,6 +23,10 @@
 	<property name="dataSource" ref="jndiDataSource"/>
 </bean>
 
+  <bean id="namedParameterjdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="jndiDataSource"/>  
+   </bean>
+
 <bean id="jndiDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 	<property name="jndiName">
 		<value>java:comp/env/jdbc/book</value>
